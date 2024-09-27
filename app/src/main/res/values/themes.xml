@@ -1,20 +1,26 @@
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.OpenToday" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#9900FF</item>
-        <item name="colorPrimaryVariant">#000000</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">#0053EC</item>
+        <item name="colorPrimaryVariant">#002D80</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#33B500</item>
-        <item name="colorSecondaryVariant">#247001</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">#0037FF</item>
+        <item name="colorSecondaryVariant">#00598C</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">#000000</item>
         <!-- Customize your theme here. -->
 
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
         <!-- Main Activity -->
-        <item name="main_currentDate_color">#008466</item>
+        <item name="androidToolbar_background">#BC7EFF</item>
+        <item name="main_currentDate_color">#008465</item>
+        <item name="button_settings_dateFormat_color">#14B777</item>
+
         <item name="disableBatteryOptimization_backgroundColor">#FF5F6A</item>
         <item name="disableBatteryOptimization_textColor">#000000</item>
         <item name="updateAvailable_backgroundColor">#FF5F6A</item>
@@ -45,9 +51,28 @@
         <item name="item_filterGroup_backgroundColor">#803D3D3D</item>
         <item name="item_filterGroup_textColor">#2B2B2B</item>
 
-        <item name="item_selectionForegroundColor">#66ff7722</item>
+        <item name="item_selectionForegroundColor">#B2EA6512</item>
         <item name="toolbar_background">#8C000000</item>
-        <item name="toolbar_more_items_item_textColor">#FFFFFF</item>
+        <item name="itemFilterState_true">#13C500</item>
+        <item name="itemFilterState_false">#FF0000</item>
+        <item name="itemFilterState_iconColor">#FFFFFF</item>
+        <item name="opentoday_icon_tint">#0F0F0F</item>
+
+        <item name="button_settings_openAdvancedSettingsOfOption">#00B0FF</item>
+        <item name="button_buttonWithColorIndicator">#3D5AFE</item>
+        <item name="button_dangerActon">#FFFFFF</item>
+        <item name="button_dangerActon_background">#475BCB</item>
+        <item name="button_exitAction">#4358CE</item>
+        <item name="button_applyAction">#07B73F</item>
+        <item name="button_importExport">?attr/colorPrimary</item>
+
+        <item name="item_notificationIndicator_default">?attr/opentoday_icon_tint</item>
+        <item name="item_notificationIndicator_disabledByTickPolicy">#E10D0D</item>
+        <item name="item_cycleList_notificationIndicatorBackgroundTint">#D5D5D5</item>
+
+        <item name="itemTextEditor_style_true">#0CE317</item>
+        <item name="itemTextEditor_style_false">#EC0808</item>
+        <item name="itemTextEditor_style_reset">#E3D40A</item>
     </style>
 
     <style name="Theme.OpenToday.ItemEditModule" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -57,9 +82,8 @@
     </style>
 
 
-
     <!-- Toolbar -->
-    <style name="Theme.OpenToday.Toolbar" />
+    <style name="Theme.OpenToday.Toolbar.Root" parent="OpenToday.Base.Toolbar.Root" />
     <style name="Theme.OpenToday.Toolbar.Button" parent="OpenToday.Base.Toolbar.Button">
         <item name="android:backgroundTint">#585858</item>
         <item name="android:textColor">#F5F5F5</item>
@@ -67,6 +91,115 @@
     <style name="Theme.OpenToday.Toolbar.Button.Selected" parent="Theme.OpenToday.Toolbar.Button">
         <item name="android:backgroundTint">#2046B8</item>
         <item name="android:textColor">#F5F5F5</item>
+    </style>
+
+    <!-- Section: File -->
+    <item name="toolbar_section_backgroundColor" type="color">#D8B5B5B5</item>
+    <style name="Theme.OpenToday.Toolbar.Section.Root.File" parent="OpenToday.Base.Toolbar.Section.Root.File">
+        <item name="android:background">@color/toolbar_section_backgroundColor</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.File.ImportFromClipboard" parent="OpenToday.Base.Toolbar.Section.Button.File">
+        <item name="android:backgroundTint">#08C8B8</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.File.Import" parent="OpenToday.Base.Toolbar.Section.Button.File">
+        <item name="android:backgroundTint">?attr/button_importExport</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.File.SaveAll" parent="OpenToday.Base.Toolbar.Section.Button.File">
+        <item name="android:backgroundTint">?attr/button_applyAction</item>
+        <item name="drawableEndCompat">@drawable/save_24px</item>
+    </style>
+
+    <!-- Section: Items -->
+    <style name="Theme.OpenToday.Toolbar.Section.Root.Items" parent="OpenToday.Base.Toolbar.Section.Root.Items">
+        <item name="android:background">@color/toolbar_section_backgroundColor</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Items.ChangeOnClick" parent="OpenToday.Base.Toolbar.Section.Button.Items">
+        <item name="android:backgroundTint">#0B9287</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Items.ChangeOnLeftSwipe" parent="OpenToday.Base.Toolbar.Section.Button.Items">
+        <item name="android:backgroundTint">#0B9287</item>
+    </style>
+    <!-- Items row -->
+    <style name="Theme.OpenToday.Toolbar.Section.Root.Items.ItemRow" parent="OpenToday.Base.Toolbar.Section.Root.Items.ItemRow">
+        <item name="android:backgroundTint">#BAFFFFFF</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Items.ItemRow.AddAndEdit" parent="OpenToday.Base.Toolbar.Section.Button.Items.ItemRow">
+        <item name="android:backgroundTint">#1FA800</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Items.ItemRow.AddOnly" parent="OpenToday.Base.Toolbar.Section.Button.Items.ItemRow">
+        <item name="android:backgroundTint">#0043C0</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Items.ItemRow.Description" parent="OpenToday.Base.Toolbar.Section.Button.Items.ItemRow">
+        <item name="android:backgroundTint">#DDC70BE0</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Text.Items.ItemRow" parent="OpenToday.Base.Toolbar.Section.Text.Items.ItemRow">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <!-- Section: OpenToday -->
+    <style name="Theme.OpenToday.Toolbar.Section.Root.OpenToday" parent="OpenToday.Base.Toolbar.Section.Root.OpenToday">
+        <item name="android:background">@color/toolbar_section_backgroundColor</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.OpenToday.ToggleLogsOverlay" parent="OpenToday.Base.Toolbar.Section.Button.OpenToday">
+        <item name="android:backgroundTint">#BA1DF4</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.OpenToday.Calendar" parent="OpenToday.Base.Toolbar.Section.Button.OpenToday">
+        <item name="android:backgroundTint">#09E78E</item>
+        <item name="icon">@drawable/calendar_clock_24px</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.OpenToday.Settings" parent="OpenToday.Base.Toolbar.Section.Button.OpenToday">
+        <item name="android:backgroundTint">#1455DE</item>
+        <item name="icon">@drawable/tune_24px</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.OpenToday.About" parent="OpenToday.Base.Toolbar.Section.Button.OpenToday">
+        <item name="android:backgroundTint">#1455DE</item>
+        <item name="icon">@drawable/info_i_24px</item>
+    </style>
+
+    <!-- Section: Selection -->
+    <style name="Theme.OpenToday.Toolbar.Section.Root.Selection" parent="OpenToday.Base.Toolbar.Section.Root.Selection">
+        <item name="android:background">@color/toolbar_section_backgroundColor</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Selection.ExportSelected" parent="OpenToday.Base.Toolbar.Section.Button.Selection">
+        <item name="android:backgroundTint">#BA1DF4</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Selection.DeselectAll" parent="OpenToday.Base.Toolbar.Section.Button.Selection">
+        <item name="android:backgroundTint">#1BC782</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Selection.Delete" parent="OpenToday.Base.Toolbar.Section.Button.Selection">
+        <item name="android:backgroundTint">#CC1717</item>
+        <item name="drawableEndCompat">@drawable/delete_24px</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Selection.MoveHere" parent="OpenToday.Base.Toolbar.Section.Button.Selection">
+        <item name="android:backgroundTint">#1494DE</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Selection.CopyHere" parent="OpenToday.Base.Toolbar.Section.Button.Selection">
+        <item name="android:backgroundTint">#0A74AA</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Selection.Edit" parent="OpenToday.Base.Toolbar.Section.Button.Selection">
+        <item name="android:backgroundTint">#4A13EE</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Text.Selection.Info" parent="OpenToday.Base.Toolbar.Section.Text.Selection">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <!-- Section: Tabs -->
+    <style name="Theme.OpenToday.Toolbar.Section.Root.Tabs" parent="OpenToday.Base.Toolbar.Section.Root.Tabs">
+        <item name="android:background">@color/toolbar_section_backgroundColor</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Text.Tabs.TabsListTitle" parent="OpenToday.Base.Toolbar.Section.Text.Tabs">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">@drawable/shape</item>
+        <item name="android:backgroundTint">#E1FFFFFF</item>
+        <item name="android:padding">2sp</item>
+    </style>
+    <style name="Theme.OpenToday.Toolbar.Section.Button.Tabs.Add" parent="OpenToday.Base.Toolbar.Section.Button.Tabs">
+        <item name="android:backgroundTint">#1D53F4</item>
+        <item name="android:src">@android:drawable/ic_input_add</item>
+        <item name="android:layout_marginEnd">5sp</item>
+        <item name="android:layout_marginTop">5sp</item>
     </style>
 
     <!-- About -->
@@ -88,4 +221,16 @@
     <!-- Settings -->
     <style name="Theme.OpenToday.Settings" parent="OpenToday.Base.Settings" />
     <style name="Theme.OpenToday.Settings.Root" parent="OpenToday.Base.Settings.Root" />
+
+    <!-- FragmentItemsTabInclude -->
+    <style name="Theme.OpenToday.ItemsTabInclude" />
+    <style name="Theme.OpenToday.ItemsTabInclude.Root">
+        <item name="android:background">#22000000</item>
+    </style>
+    <style name="Theme.OpenToday.ItemsTabInclude.Input">
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="Theme.OpenToday.ItemsTabInclude.Enter">
+        <item name="android:backgroundTint">#05E6FF</item>
+    </style>
 </resources>

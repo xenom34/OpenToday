@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        style="@style/Theme.OpenToday.Toolbar.Root">
 
         <Button
             android:id="@+id/toolbar_file"
@@ -31,6 +32,11 @@
         <Button
             android:id="@+id/toolbar_opentoday"
             android:text="@string/toolbar_opentoday"
+            style="@style/Theme.OpenToday.Toolbar.Button" />
+
+        <Button
+            android:id="@+id/toolbar_debug"
+            android:text="@string/toolbar_debug"
             style="@style/Theme.OpenToday.Toolbar.Button" />
     </LinearLayout>
 </HorizontalScrollView>

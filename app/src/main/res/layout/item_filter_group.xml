@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:background="@drawable/shape"
+    android:paddingEnd="1sp"
     android:backgroundTint="?attr/item_filterGroup_backgroundColor">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <TextView
+        android:id="@+id/title"
+        tools:text="Filter Group 1111111 2222222\n33333"
+        android:textSize="19sp"
+        android:paddingLeft="5sp"
+        android:layout_alignBaseline="@id/externalEditor"
+        android:textColor="?attr/item_filterGroup_textColor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_toStartOf="@id/indicatorNotification"
+        android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_weight="1"
-            tools:text="Simple FilterGroup"
-            android:textSize="19sp"
-            android:paddingLeft="5sp"
-            android:textColor="?attr/item_filterGroup_textColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-        <Button
-            android:layout_marginStart="2sp"
-            android:id="@+id/externalEditor"
-            android:layout_width="53sp"
-            android:layout_height="35sp"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:text="Ed"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+    <ImageView
+        android:id="@+id/indicatorNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="3sp"
+        tools:visibility="visible"
+        android:layout_toStartOf="@id/externalEditor"
+        android:src="@drawable/notifications_24px" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/externalEditor"
+        android:layout_width="53sp"
+        android:layout_height="35sp"
+        android:layout_marginStart="2sp"
+        android:gravity="center"
+        android:layout_alignParentEnd="true"
+        android:text="Ed"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText" />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/title"
         android:orientation="vertical"
         android:paddingLeft="3sp"
-        android:paddingRight="2sp" />
+        android:paddingRight="2sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="2sp" />
 
-</LinearLayout>
+
+</RelativeLayout>

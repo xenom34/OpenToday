@@ -24,7 +24,22 @@
         android:id="@+id/titleFromItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title from item text" />
+        android:text="@string/dialog_itemNotification_titleFromItemText" />
+
+    <com.fazziclay.opentoday.util.opentodaybutton.MaterialButtonWithColorIndicator
+        android:id="@+id/notificationColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_itemNotification_notificationColor" />
+
+    <ImageButton
+        android:id="@+id/icon"
+        android:scaleType="fitXY"
+        android:src="@drawable/minimize_gray_foreground"
+        android:layout_width="60sp"
+        android:layout_gravity="end"
+        android:layout_height="55sp"
+        android:contentDescription="Icon" />
 
     <EditText
         android:id="@+id/text"
@@ -39,7 +54,7 @@
         android:id="@+id/textFromItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Text from item text" />
+        android:text="@string/dialog_itemNotification_textFromItemText" />
 
     <EditText
         android:id="@+id/notifySubText"
@@ -55,10 +70,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!-- Bad idea -->
+    <CheckBox
+        android:id="@+id/fullScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_itemNotification_fullScreen" />
+
+    <CheckBox
+        android:id="@+id/previewViewOnly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_itemNotification_previewViewOnly" />
+
+    <CheckBox
+        android:id="@+id/sound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_itemNotification_sound" />
+
     <Button
         android:id="@+id/test"
-        android:visibility="gone"
         android:text="@string/dialog_itemNotification_testNotify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

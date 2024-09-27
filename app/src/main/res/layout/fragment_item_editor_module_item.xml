@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/Theme.OpenToday.ItemEditModule">
+
+    <TextView
+        android:id="@+id/notifications_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_itemEditor_module_item_notifications" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notifications"
+        android:layout_below="@id/notifications_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50sp" />
+
+    <TextView
+        android:id="@+id/notificationsNotFounded"
+        android:layout_width="match_parent"
+        android:layout_below="@id/notifications_title"
+        android:textSize="17sp"
+        android:visibility="gone"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_toStartOf="@id/addNotification"
+        android:text="@string/fragment_itemEditor_module_item_notifications_notFound"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNotification"
+        android:layout_margin="3sp"
+        android:layout_alignEnd="@id/notifications"
+        android:layout_width="wrap_content"
+        android:src="@drawable/add_24px"
+        android:layout_height="wrap_content" />
+
+    <com.fazziclay.opentoday.util.opentodaybutton.MaterialButtonWithColorIndicator
+        android:id="@+id/itemBackgroundColor"
+        android:layout_below="@id/notifications"
+        android:text="@string/fragment_itemEditor_module_item_backgroundColor_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/viewMinHeight_title"
+        android:layout_width="match_parent"
+        android:layout_below="@id/itemBackgroundColor"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_itemEditor_module_item_minHeight_hint" />
+
+    <EditText
+        android:id="@+id/viewMinHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="0"
+        android:maxLength="10"
+        android:importantForAutofill="no"
+        android:layout_below="@id/viewMinHeight_title"
+        android:layout_toStartOf="@id/minimize"
+        tools:ignore="HardcodedText" />
+
+    <CheckBox
+        android:id="@+id/minimize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="0sp"
+        android:layout_alignBaseline="@id/viewMinHeight"
+        android:layout_alignParentEnd="true"
+        android:text="@string/fragment_itemEditor_module_item_minimize" />
+
+    <CheckBox
+        android:id="@+id/selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="0sp"
+        android:layout_below="@id/minimize"
+        android:layout_toEndOf="@id/viewMinHeight"
+        android:text="@string/fragment_itemEditor_module_item_selected" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selected">
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/itemTagsGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSpacing="1sp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/addTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:backgroundTint="@color/purple_200" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+</RelativeLayout>

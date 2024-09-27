@@ -1,93 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Tabs -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
+    <HorizontalScrollView
+        android:id="@+id/tabsScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabGravity="start"
-        app:tabMode="scrollable" />
+        android:scrollbarSize="0px">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="15sp"
+            android:paddingStart="15sp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:background="#00ff00"
+                app:tabGravity="start"
+                app:tabMode="scrollable" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/addTabInlineButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="+"
+                android:textSize="25sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        tools:background="#ff0000"
+        android:paddingEnd="4sp"
+        android:paddingStart="4sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/quickNote"
+        android:layout_below="@id/tabsScrollView" />
 
     <RelativeLayout
+        android:id="@+id/quickNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:minHeight="40sp"
+        style="@style/Theme.OpenToday.ItemsTabInclude.Root"
+        android:layout_above="@id/toolbar"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
+        android:orientation="horizontal">
 
-        <!-- ViewPager -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
-
-                android:paddingRight="4sp"
-                android:paddingLeft="4sp"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="0dp" />
-
-            <LinearLayout
-                android:id="@+id/quickNote"
-                android:layout_width="match_parent"
-                android:layout_weight="0"
-                android:layout_height="wrap_content"
-                android:minHeight="40sp"
-                android:background="#D710DB2B"
-                android:gravity="bottom"
-                android:paddingRight="2sp"
-                android:paddingLeft="2sp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/quickNoteText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/quickNote_hint"
-                    android:inputType="textMultiLine"
-                    android:importantForAutofill="no" />
-
-                <ImageButton
-                    android:id="@+id/quickNoteAdd"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_weight="0"
-                    android:src="@android:drawable/ic_menu_send"
-                    android:contentDescription="@string/quickNote_add" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Toolbar more -->
-        <LinearLayout
-            android:id="@+id/toolbar_more"
+        <EditText
+            android:id="@+id/quickNoteText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical"
-            android:clickable="false" />
+            tools:text="This is text"
+            style="@style/Theme.OpenToday.ItemsTabInclude.Input"
+            android:hint="@string/quickNote_hint"
+            android:inputType="textMultiLine"
+            android:layout_toStartOf="@id/quickNoteAdd"
+            android:importantForAutofill="no" />
+
+        <ImageButton
+            android:id="@+id/quickNoteAdd"
+            android:layout_width="48dp"
+            android:layout_height="45sp"
+            style="@style/Theme.OpenToday.ItemsTabInclude.Enter"
+            android:contentDescription="@string/quickNote_add"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/new_label_24px" />
+
     </RelativeLayout>
 
+    <!-- Toolbar more -->
+    <FrameLayout
+        android:id="@+id/toolbar_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/toolbar"
+        android:orientation="vertical"
+        android:clickable="false" />
+
     <!-- Toolbar buttons -->
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0"
-        android:paddingLeft="5sp"
-        android:paddingRight="5sp"
-        android:background="?attr/toolbar_background">
+        android:paddingLeft="8sp"
+        android:paddingRight="8sp"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/toolbar_background" />
 
-        <!-- include layout="@layout/toolbar" / -->
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

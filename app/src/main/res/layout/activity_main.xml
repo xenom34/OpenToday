@@ -1,97 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.activity.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.fazziclay.opentoday.gui.activity.MainActivity">
 
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:background="?attr/androidToolbar_background"
+        android:id="@+id/toolbar"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content" />
 
-        <!-- Current date -->
-        <LinearLayout
-            android:id="@+id/current_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="4sp"
-            android:paddingEnd="4sp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/current_date_date"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                tools:text="2022.06.25 Saturday"
-                android:textColor="?attr/main_currentDate_color"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/current_date_time"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0"
-                android:gravity="end"
-                tools:text="10:00:59"
-                android:textColor="?attr/main_currentDate_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <!-- Notifications -->
-        <LinearLayout
-            android:id="@+id/notifications"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/update_available"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:layout_marginStart="2sp"
-                android:layout_marginEnd="2sp"
-                android:background="@drawable/shape"
-                android:backgroundTint="?attr/updateAvailable_backgroundColor"
-                android:orientation="vertical"
-                android:padding="5sp"
-                android:visibility="gone"
-                tools:visibility="visible">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/update_available"
-                    android:textColor="?attr/updateAvailable_textColor"
-                    android:textSize="20sp"
-                    app:drawableLeftCompat="@drawable/update_available" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/content_root"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
     <TextView
-        android:visibility="gone"
-        android:clickable="false"
-        android:overScrollMode="always"
-        android:contextClickable="false"
-        android:id="@+id/debugs"
+        android:id="@+id/current_date_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        tools:text="2022.06.25 Saturday"
+        android:layout_marginStart="7sp"
+        android:layout_alignBaseline="@id/current_date_time"
+        android:textColor="?attr/main_currentDate_color"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/current_date_time"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/current_date_date"
+        android:layout_width="wrap_content"
+        android:gravity="end"
+        android:layout_marginEnd="7sp"
+        android:layout_height="wrap_content"
+        tools:text="10:00:59"
+        android:textColor="?attr/main_currentDate_color"
+        android:textSize="24sp" />
+
+    <!-- Notifications -->
+    <LinearLayout
+        android:id="@+id/notifications"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="[AOo] 123213"
-        android:textColor="#FFEA00"
-        android:shadowColor="#000000"
-        android:shadowRadius="4"
-        android:background="#18000000"
-        android:textSize="13sp" />
+        android:orientation="vertical"
+        android:layout_below="@id/current_date_date">
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/mainActivity_rootFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_below="@id/notifications"
+        android:layout_above="@id/toolbar"
+        android:layout_height="match_parent" />
+
+    <com.leondzn.simpleanalogclock.SimpleAnalogClock
+        android:id="@+id/analogClock"
+        android:layout_width="90sp"
+        android:layout_height="90sp"
+        app:minuteTint="#000000"
+        app:hourTint="#000000"
+        app:secondTint="#240101"
+        app:faceDrawable="@drawable/analog_clock_background"
+        android:alpha="0.65"
+        android:layout_alignTop="@id/current_date_time"
+        android:layout_margin="5sp"
+        android:layout_alignParentEnd="true" />
+
+
+    <!-- Debug layouts -->
+    <ScrollView
+        android:id="@+id/debug_logs_scroll"
+        android:visibility="gone"
+        android:background="#33000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/debug_logs_text"
+                android:textColor="#ffff00"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/debug_logs_sizeUp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="#80EB1010"
+        android:layout_toStartOf="@id/debug_logs_switch"
+        android:text="+"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:layout_width="40sp"
+        android:layout_margin="1sp"
+        android:layout_height="35sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/debug_logs_sizeDown"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="#800800FF"
+        android:layout_toStartOf="@id/debug_logs_sizeUp"
+        android:text="-"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:layout_width="40sp"
+        android:layout_margin="1sp"
+        android:layout_height="35sp"
+        tools:ignore="HardcodedText" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/debug_logs_switch"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="#7FFF0000"
+        android:layout_alignParentEnd="true"
+        android:layout_width="40sp"
+        android:layout_height="34sp"/>
+
+    <TextView
+        android:id="@+id/debug_info"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="#74000000"
+        android:textColor="#ffffff"
+        tools:text="This is test of debug-info text\nnewLine 000000000000000000000000000000000000000"
+        android:minHeight="0sp"
+        android:minWidth="0sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/importantTodo"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF261B"
+        android:shadowRadius="10"
+        android:shadowColor="#0A0A07"
+        android:textSize="22sp"
+        android:background="#572C3A5E"
+        tools:text="Owo" />
 </RelativeLayout>

@@ -2,31 +2,41 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/edit"
+        android:icon="@drawable/edit_24px"
         android:title="@string/menuItem_openEditDialog" />
+
+    <item
+        android:id="@+id/textItem_editText"
+        android:icon="@drawable/edit_note_24px"
+        android:title="@string/item_text_editText" />
 
     <item
         android:id="@+id/selected"
         android:checkable="true"
+        android:icon="@drawable/select_24px"
         android:title="@string/menuItem_selected" />
 
     <item
         android:id="@+id/minimize"
         android:checkable="true"
+        android:icon="@drawable/minimize_24px"
         android:title="@string/menuItem_minimize" />
-
-    <group android:id="@+id/textItem">
-        <item android:checkable="true" android:id="@+id/textItem_clickableUrls" android:title="@string/uidialog_edit_textentry_clickableUrls" />
-        <item android:id="@+id/textItem_editText" android:title="@string/item_text_editText" />
-    </group>
 
     <item
         android:id="@+id/copy"
+        android:icon="@drawable/content_copy_24px"
         android:title="@string/menuItem_copy" />
 
     <item
-        android:visible="false"
+        android:id="@+id/transform"
+        android:icon="@drawable/handyman_24px"
+        android:title="@string/menuItem_transform" />
+
+    <item
         android:id="@+id/delete"
+        android:icon="@drawable/delete_24px"
         android:title="@string/menuItem_delete" />
 
 
+    <item android:checkable="true" android:id="@+id/textItem_clickableUrls" android:title="@string/item_text_clickableUrls" />
 </menu>

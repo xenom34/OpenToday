@@ -1,47 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    style="@style/Theme.OpenToday.Settings.Root">
+    android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings_theme_title"
-        android:textSize="18sp" />
+        style="@style/Theme.OpenToday.Settings.Root">
 
-    <Spinner
-        android:id="@+id/theme_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/settings_theme_title"
-        android:minHeight="48dp"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        <TextView
+            android:id="@+id/themeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_theme_title"
+            android:textSize="16sp" />
 
-    <CheckBox
-        android:id="@+id/quickNote_checkbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_quickNote" />
+        <Spinner
+            android:id="@+id/theme_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/settings_theme_title"
+            android:minHeight="48dp"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
+            android:layout_below="@+id/themeTitle"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <CheckBox
-        android:id="@+id/parseTimeFromQuickNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_parseTimeFromQuickNote" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/quickNote_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/theme_spinner"
+            android:text="@string/settings_quickNote" />
 
-    <CheckBox
-        android:id="@+id/minimizeGrayColor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_minimizeGrayColor" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/parseTimeFromQuickNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quickNote_checkbox"
+            android:text="@string/settings_parseTimeFromQuickNote" />
 
-    <CheckBox
-        android:id="@+id/trimItemNamesOnEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_trimItemNamesOnEdit" />
+        <Button
+            android:id="@+id/defaultQuickNoteType"
+            android:layout_width="wrap_content"
+            android:text="@string/settings_defaultQuickNoteType"
+            android:layout_below="@id/parseTimeFromQuickNote"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/firstDayOfWeek_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/settings_firstDayOfWeek_title"
+            android:layout_below="@id/defaultQuickNoteType"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/firstDayOfWeek_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/settings_firstDayOfWeek_title"
+            android:minHeight="48dp"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
+            android:layout_below="@id/firstDayOfWeek_title"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/date_and_time_format"
+            android:text="@string/settings_dateAndTime_format"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/firstDayOfWeek_spinner"
+            android:backgroundTint="?attr/button_settings_dateFormat_color"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/analogClockOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/isAnalogClock"
+            android:layout_alignTop="@id/isAnalogClock"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10sp"
+            android:backgroundTint="?attr/button_settings_openAdvancedSettingsOfOption"
+            android:src="@drawable/tune_24px" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/isAnalogClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_and_time_format"
+            android:layout_marginEnd="30sp"
+            android:layout_toStartOf="@id/analogClockOptions"
+            android:text="@string/settings_isAnalogClock" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/showItemPath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/isAnalogClock"
+            android:text="@string/settings_showItemPath" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/minimizeGrayColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/showItemPath"
+            android:text="@string/settings_minimizeGrayColor" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/isItemBackgroundRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/minimizeGrayColor"
+            android:text="@string/settings_isItemBackgroundRandom" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/trimItemNamesOnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/isItemBackgroundRandom"
+            android:text="@string/settings_trimItemNamesOnEdit" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/addItemsToTop"
+            android:layout_below="@id/trimItemNamesOnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_addItemsToTop" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/actionbarInBottom"
+            android:layout_below="@id/addItemsToTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_actionbarInBottom" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/scrollToAddedItem"
+            android:layout_below="@id/actionbarInBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_scrollToAddedItem" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/confirmFastChanges"
+            android:layout_below="@id/scrollToAddedItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_confirmFastChanges" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/autoCloseToolbar"
+            android:layout_below="@id/confirmFastChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_autoCloseToolbar" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/itemInternalBackgroundFromItem"
+            android:layout_below="@id/autoCloseToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_itemInternalBackgroundFromItem" />
+
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/colorHistoryEnabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemInternalBackgroundFromItem"
+            android:text="@string/settings_colorHistoryEnabled" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/colorHistoryLocked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colorHistoryEnabled"
+            android:text="@string/settings_colorHistoryLocked" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/isTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colorHistoryLocked"
+            android:text="@string/settings_isTelemetry" />
+
+
+        <Button
+            android:id="@+id/pincode"
+            android:layout_width="wrap_content"
+            android:text="@string/settings_pincode"
+            android:layout_below="@id/isTelemetry"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/firstTab_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/settings_firstTab_title"
+            android:layout_below="@id/pincode"/>
+
+        <Spinner
+            android:id="@+id/firstTab"
+            android:layout_width="match_parent"
+            android:layout_below="@id/firstTab_title"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
+            android:layout_height="48dp" />
+
+        <Button
+            android:id="@+id/export"
+            android:layout_width="200sp"
+            android:text="@string/settings_export"
+            android:layout_below="@id/firstTab"
+            android:layout_marginTop="20sp"
+            android:backgroundTint="?attr/button_importExport"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</ScrollView>

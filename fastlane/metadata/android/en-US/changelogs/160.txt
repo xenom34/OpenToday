@@ -1,0 +1,10 @@
+# Changelog v160 1.3 (2023.11.05)
+ * Notification can now come as an alarm clock (full screen)
+ * When creating an item, its default background color is random (configurable)
+ * The analog clock can be enabled in the settings
+ * The text editor can now edit bold, italic, strikeout and font size
+ * Animations added
+ * Item text editor now automatically show keyboard
+ * An (+) button has been added to the list of tabs
+ * More material style
+ and more...
